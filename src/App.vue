@@ -33,7 +33,7 @@ export default {
   methods: {
     filterDisc(genre) {
       this.filteredDisc = this.disks.filter((disc) => {
-        return disc.genre === genre;
+        return disc.genre.toLowerCase() === genre || genre === 'all';
       });
     },
   },
