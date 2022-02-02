@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <disc-card title="NEW JERSEY" image="https://th.bing.com/th?id=OIF.A1J2Vq9cZDM%2fopfAA9jFKA&pid=ImgDet&rs=1" author="Gino" date="1980"/>
+    <div class="container-main">
+        <disc-card v-for="(disk, index) in disks" :key="index" :image="disk.poster" :author="disk.author" :title="disk.title" :date="disk.year" />
     </div>
 </template>
 
@@ -18,5 +18,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.container-main{
+    display: flex;
+    flex-wrap: wrap;
+}
 </style>
