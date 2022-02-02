@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <main-container :disks="disks"/>
+    <main-container :disks="filteredDisc"/>
+    <button @click="filterDisc('Pop')">filtra</button>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ export default {
   data() {
     return {
       disks: [],
+      filteredDisc: []
     };
   },
   mounted() {
@@ -23,8 +25,16 @@ export default {
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((res) => {
         this.disks = res.data.response;
+        this.filteredDisc = res.data.response;
       });
   },
+  methods: {
+    filterDisc(genre) {
+      this.filteredDisc = this.disks.filter((disc) => {
+        return disc.genre === genre;
+      })
+    }
+  }
 };
 </script>
 
