@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <header-box @search="filterDisc"/>
+    <header-box @search="filterDisc" :list="genreList"/>
     <main-container :disks="filteredDisc" />
+    {{ userName }}
   </div>
 </template>
 
@@ -20,7 +21,25 @@ export default {
     return {
       disks: [],
       filteredDisc: [],
+      user: {
+        name: 'Gino',
+        surname: 'Paoli'
+      }
     };
+  },
+  computed: {
+    userName() {
+      return `${this.user.name} ${this.user.surname}`
+    },
+    genreList() {
+      const list = [];
+      this.disks.forEach((element) => {
+        if(!list.includes(element.genre.toLowerCase())) {
+          list.push(element.genre.toLowerCase())
+        }
+      })
+      return list;
+    }
   },
   mounted() {
     axios

@@ -4,16 +4,16 @@
       v-model="select"
       @change="$emit('search', select)">
       <option value="all">All</option>
-      <option value="rock">Rock</option>
-      <option value="pop">Pop</option>
-      <option value="jazz">Jazz</option>
-      <option value="metal">Metal</option>
+      <option v-for="(genre, i) in list" :key="i" :value="genre">{{genre}}</option>
     </select>
   </header>
 </template>
 
 <script>
 export default {
+  props: {
+    list: Array
+  },
   data() {
     return {
       select: 'all',
