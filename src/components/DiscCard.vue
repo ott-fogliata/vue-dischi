@@ -1,29 +1,31 @@
 <template>
-    <div class="disc-container">
-        <div class="img">
-            <img :src="image" alt="">
-        </div>
-        <p>{{title}}</p> 
-        <p>{{author}}</p> 
-        <p>{{date}}</p> 
+  <div class="disc-container">
+    <div class="img">
+      <img :src="image" alt="" />
     </div>
+    <p>{{ title }}</p>
+    <p>{{ author }}</p>
+    <p>{{ date }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-        title: String,
-        image: String,
-        author: String,
-        date: String,
-    }
-}
+  props: {
+    title: String,
+    image: String,
+    author: String,
+    date: String,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .disc-container{
     width: calc(100% / 5);
-    padding: 25px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    margin: 10px 0;
     text-align: center;
     background-color: grey;
     color: white;

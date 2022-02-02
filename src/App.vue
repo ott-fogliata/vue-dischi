@@ -1,23 +1,25 @@
 <template>
   <div id="app">
-    <main-container :disks="filteredDisc"/>
-    <button @click="filterDisc('Pop')">filtra</button>
+    <header-box @search="filterDisc"/>
+    <main-container :disks="filteredDisc" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import MainContainer from './components/MainContainer.vue'
+import MainContainer from "./components/MainContainer.vue";
+import HeaderBox from "./components/HeaderBox.vue";
 
 export default {
   name: "App",
   components: {
     MainContainer,
+    HeaderBox,
   },
   data() {
     return {
       disks: [],
-      filteredDisc: []
+      filteredDisc: [],
     };
   },
   mounted() {
@@ -32,14 +34,14 @@ export default {
     filterDisc(genre) {
       this.filteredDisc = this.disks.filter((disc) => {
         return disc.genre === genre;
-      })
-    }
-  }
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss">
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
