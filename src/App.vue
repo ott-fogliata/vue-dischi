@@ -1,14 +1,18 @@
 <template>
   <div id="app">
-    {{disks}}
+    <main-container :disks="disks"/>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import MainContainer from './components/MainContainer.vue'
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    MainContainer,
+  },
   data() {
     return {
       disks: [],
@@ -25,4 +29,9 @@ export default {
 </script>
 
 <style lang="scss">
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 </style>
